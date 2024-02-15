@@ -1,3 +1,4 @@
+import VertexDesignThemeProvider from '../../provider/VertexDesignThemeProvider';
 import Button from '../Button';
 import type { ButtonProps } from '../Button';
 import type { FC } from 'react';
@@ -12,15 +13,17 @@ const Example: FC<ButtonProps> = ({ disabled = false, onClick = () => {}, varian
                 height: '100%',
             }}
         >
-            <Button
-                animationStyle={animationStyle}
-                variant={variant}
-                reverse={reverse}
-                disabled={disabled}
-                onClick={onClick}
-            >
-                Button
-            </Button>
+            <VertexDesignThemeProvider>
+                <Button
+                    animationStyle={animationStyle}
+                    variant={variant}
+                    reverse={reverse}
+                    disabled={disabled}
+                    onClick={onClick}
+                >
+                    Button
+                </Button>
+            </VertexDesignThemeProvider>
         </div>
     );
 };

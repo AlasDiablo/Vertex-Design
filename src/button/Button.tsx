@@ -11,11 +11,11 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & Partial<Butt
 
 const StyledCircleButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'>>`
     padding: 12px;
-    background-color: #dee2e6;
+    background-color: var(--vertex-grey-89);
     transition-duration: 0.25s;
     border: none;
-    border-left: solid 2px rgba(0, 255, 255, 0.75);
-    border-right: solid 2px rgba(0, 255, 255, 0.75);
+    border-left: solid 2px var(--vertex-border-color);
+    border-right: solid 2px var(--vertex-border-color);
     clip-path: ${(props) => {
         const size = !props.variant ? '24' : '12';
         if (!props.reverse) {
@@ -23,9 +23,10 @@ const StyledCircleButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'
         }
         return `polygon(calc(100% - ${size}px) 0%, 100% ${size}px, 100% 100%, ${size}px 100%, 0% calc(100% - ${size}px), 0% 0%)`;
     }};
+
     &:hover,
     &:focus {
-        background-color: #d3d9de;
+        background-color: var(--vertex-grey-85);
         ${(props) => {
             if (props.disabled) {
                 return;
@@ -37,9 +38,10 @@ const StyledCircleButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'
             return `clip-path: polygon(${size}px 0%, 100% 0%, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0% 100%, 0% ${size}px)`;
         }};
     }
+
     &:active {
         transition-duration: 0.05s;
-        background-color: #b6bfc8;
+        background-color: var(--vertex-grey-75);
         clip-path: ${(props) => {
             if (!props.reverse) {
                 return 'polygon(100% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 100%, 0% 0%)';
@@ -51,11 +53,11 @@ const StyledCircleButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'
 
 const StyledBlockButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'>>`
     padding: 12px;
-    background-color: #dee2e6;
+    background-color: var(--vertex-grey-89);
     transition-duration: 0.25s;
     border: none;
-    border-left: solid 2px rgba(0, 255, 255, 0.75);
-    border-right: solid 2px rgba(0, 255, 255, 0.75);
+    border-left: solid 2px var(--vertex-border-color);
+    border-right: solid 2px var(--vertex-border-color);
     clip-path: ${(props) => {
         const size = !props.variant ? '24' : '12';
         if (!props.reverse) {
@@ -63,9 +65,10 @@ const StyledBlockButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'>
         }
         return `polygon(calc(100% - ${size}px) 0%, 100% ${size}px, 100% 100%, ${size}px 100%, 0% calc(100% - ${size}px), 0% 0%)`;
     }};
+
     &:hover,
     &:focus {
-        background-color: #d3d9de;
+        background-color: var(--vertex-grey-85);
         ${(props) => {
             if (props.disabled) {
                 return;
@@ -76,9 +79,10 @@ const StyledBlockButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'>
             return 'clip-path: polygon(calc(100% - 8px) 0%, 100% 8px, 100% 100%, 8px 100%, 0% calc(100% - 8px), 0% 0%)';
         }};
     }
+
     &:active {
         transition-duration: 0.05s;
-        background-color: #b6bfc8;
+        background-color: var(--vertex-grey-75);
         clip-path: ${(props) => {
             if (!props.reverse) {
                 return 'polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%)';
@@ -88,6 +92,15 @@ const StyledBlockButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'>
     }
 `;
 
+/**
+ * Todo
+ * @param animationStyle
+ * @param variant
+ * @param reverse
+ * @param children
+ * @param props
+ * @constructor
+ */
 const Button = ({ animationStyle = 'block', variant = false, reverse = false, children, ...props }: ButtonProps) => {
     if (animationStyle === 'circle') {
         return (
