@@ -1,0 +1,37 @@
+{
+    "name": "vertex-design",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.es.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "/dist"
+    ],
+    "scripts": {
+        "build": "tsc && vite build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@draconides/eslint-config-react": "^1.2.0",
+        "@draconides/eslint-config-ts": "^1.2.0",
+        "@types/node": "^18.19.15",
+        "@types/react": "^18.2.55",
+        "eslint": "^8.56.0",
+        "sass": "^1.70.0",
+        "stylelint": "^16.2.1",
+        "stylelint-config-standard-scss": "^13.0.0",
+        "stylelint-config-twbs-bootstrap": "^14.0.0",
+        "typescript": "^5.3.3",
+        "vite": "^5.1.1",
+        "vite-plugin-dts": "^3.7.2",
+        "vite-plugin-eslint": "^1.8.1",
+        "vite-plugin-stylelint": "^5.3.1"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0"
+    }
+}

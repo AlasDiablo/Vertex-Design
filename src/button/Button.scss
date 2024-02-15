@@ -1,0 +1,113 @@
+[vertex-button] {
+  padding: 12px;
+  background-color: #dee2e6;
+  transition-duration: .25s;
+}
+
+[vertex-button~="animationStyle:block"] {
+  &[vertex-button~="variant:false"] {
+    &[vertex-button~="revers:false"] {
+      clip-path:
+        polygon(
+          24px 0%,
+          100% 0%,
+          100% calc(100% - 24px),
+          calc(100% - 24px) 100%,
+          0% 100%,
+          0% 24px
+        );
+    }
+
+    &[vertex-button~="revers:true"] {
+      clip-path:
+        polygon(
+          calc(100% - 24px) 0%,
+          100% 24px,
+          100% 100%,
+          24px 100%,
+          0% calc(100% - 24px),
+          0% 0%
+        );
+    }
+  }
+
+  &[vertex-button~="variant:true"] {
+    &[vertex-button~="revers:false"] {
+      clip-path:
+        polygon(
+          12px 0%,
+          100% 0%,
+          100% calc(100% - 12px),
+          calc(100% - 12px) 100%,
+          0% 100%,
+          0% 12px
+        );
+    }
+
+    &[vertex-button~="revers:true"] {
+      clip-path:
+        polygon(
+          calc(100% - 12px) 0%,
+          100% 12px,
+          100% 100%,
+          12px 100%,
+          0% calc(100% - 12px),
+          0% 0%
+        );
+    }
+  }
+}
+
+[vertex-button~="animationStyle:circle"] {
+  &[vertex-button~="variant:false"] {
+    &[vertex-button~="revers:false"] {
+      clip-path:
+        polygon(
+          24px 0%,
+          100% 0%,
+          100% calc(100% - 24px),
+          calc(100% - 24px) 100%,
+          0% 100%,
+          0% 24px
+        );
+    }
+
+    &[vertex-button~="revers:true"] {
+      clip-path:
+        polygon(
+          calc(100% - 24px) 0%,
+          100% 24px,
+          100% 100%,
+          24px 100%,
+          0% calc(100% - 24px),
+          0% 0%
+        );
+    }
+  }
+
+  &[vertex-button~="variant:true"] {
+    &[vertex-button~="revers:false"] {
+      clip-path:
+        polygon(
+          24px 0%,
+          100% 0%,
+          100% calc(100% - 24px),
+          calc(100% - 24px) 100%,
+          0% 100%,
+          0% 24px
+        );
+    }
+
+    &[vertex-button~="revers:true"] {
+      clip-path:
+        polygon(
+          calc(100% - 24px) 0%,
+          100% 24px,
+          100% 100%,
+          24px 100%,
+          0% calc(100% - 24px),
+          0% 0%
+        );
+    }
+  }
+}
