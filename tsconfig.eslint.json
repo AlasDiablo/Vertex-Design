@@ -2,7 +2,9 @@
     "extends": "./tsconfig.json",
     "include": [
         "src",
-        "vite.config.ts"
+        "vite.config.ts",
+        "tests.ts",
+        ".storybook"
     ],
     "exclude": [
         "dist"

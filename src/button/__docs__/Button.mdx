@@ -1,0 +1,37 @@
+import { Canvas, Meta } from "@storybook/blocks";
+import * as Button from "./Button.stories.tsx";
+
+<Meta of={Button} title="Button" />
+
+# Button
+
+Button component with different props.
+
+#### Example
+
+<Canvas of={Button.Primary} />
+
+## Usage
+
+```tsx
+import { Button } from "vertex-design";
+
+const Example = () => {
+    return (
+        <Button
+            animationStyle="block"
+            variant={false}
+            revers={false}
+            onClick={()=> console.log("Clicked")}
+        >
+            Button
+        </Button>
+    );
+};
+
+export default Example;
+```
+
+#### Arguments
+
+- Todo

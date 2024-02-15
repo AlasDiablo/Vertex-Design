@@ -1,13 +1,9 @@
-import { peerDependencies } from './package.json';
+/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import eslint from 'vite-plugin-eslint';
-import stylelint from 'vite-plugin-stylelint';
-
-const linter = process.env.VITE_ENV === 'prod' ? [] : [eslint(), stylelint()];
 
 export default defineConfig({
-    plugins: [dts(), ...linter],
+    plugins: [dts()],
     build: {
         lib: {
             entry: './src/index.ts',
@@ -16,9 +12,14 @@ export default defineConfig({
             formats: ['cjs', 'es'],
         },
         rollupOptions: {
-            external: [...Object.keys(peerDependencies)],
+            external: ['react', 'react/jsx-runtime', 'styled-components'],
         },
         sourcemap: true,
         emptyOutDir: true,
+    },
+    test: {
+        globals: true,
+        environment: 'jsdom',
+        setupFiles: './tests.ts',
     },
 });

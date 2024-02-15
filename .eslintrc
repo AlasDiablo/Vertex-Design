@@ -5,14 +5,16 @@
     },
     "env": {
         "jest": true,
-        "node": true,
-        "browser": false
+        "node": false,
+        "browser": true
     },
     "extends": [
         "@draconides/eslint-config-ts",
         "@draconides/eslint-config-react"
     ],
     "rules": {
-        "react/no-unknown-property": ["off"]
+        "react/no-unknown-property": [
+            "off"
+        ]
     }
 }
