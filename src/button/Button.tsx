@@ -40,7 +40,12 @@ const StyledCircleButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'
     &:active {
         transition-duration: 0.05s;
         background-color: #b6bfc8;
-        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+        clip-path: ${(props) => {
+            if (!props.reverse) {
+                return 'polygon(100% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 100%, 0% 0%)';
+            }
+            return 'polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%)';
+        }};
     }
 `;
 
@@ -68,13 +73,18 @@ const StyledBlockButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'>
             if (!props.reverse) {
                 return 'clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px)';
             }
-            return 'clip-path: calc(100% - 8px) 0%, 100% 8px, 100% 100%, 8px 100%, 0% calc(100% - 8px), 0% 0%';
+            return 'clip-path: polygon(calc(100% - 8px) 0%, 100% 8px, 100% 100%, 8px 100%, 0% calc(100% - 8px), 0% 0%)';
         }};
     }
     &:active {
         transition-duration: 0.05s;
         background-color: #b6bfc8;
-        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%);
+        clip-path: ${(props) => {
+            if (!props.reverse) {
+                return 'polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 0%)';
+            }
+            return 'polygon(100% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 100%, 0% 0%)';
+        }};
     }
 `;
 
