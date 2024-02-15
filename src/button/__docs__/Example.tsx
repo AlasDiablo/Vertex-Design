@@ -2,7 +2,7 @@ import Button from '../Button';
 import type { ButtonProps } from '../Button';
 import type { FC } from 'react';
 
-const Example: FC<ButtonProps> = ({ disabled = false, onClick = () => {}, variant, revers, animationStyle }) => {
+const Example: FC<ButtonProps> = ({ disabled = false, onClick = () => {}, variant, reverse, animationStyle }) => {
     return (
         <div
             style={{
@@ -15,7 +15,7 @@ const Example: FC<ButtonProps> = ({ disabled = false, onClick = () => {}, varian
             <Button
                 animationStyle={animationStyle}
                 variant={variant}
-                revers={revers}
+                reverse={reverse}
                 disabled={disabled}
                 onClick={onClick}
             >

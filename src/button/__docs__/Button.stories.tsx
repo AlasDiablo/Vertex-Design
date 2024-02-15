@@ -14,7 +14,7 @@ export const Primary: Story = {
         disabled: false,
         animationStyle: 'block',
         variant: false,
-        revers: false,
+        reverse: false,
         onClick: () => {
             console.log('Button');
         },
@@ -25,7 +25,7 @@ export const Secondary: Story = {
         disabled: false,
         animationStyle: 'circle',
         variant: false,
-        revers: false,
+        reverse: false,
         onClick: () => {
             console.log('Button');
         },

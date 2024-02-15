@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import type { ButtonHTMLAttributes } from 'react';
 
 type ButtonThemeProps = {
-    revers: boolean;
+    reverse: boolean;
     animationStyle: 'block' | 'circle';
     variant: boolean;
 };
@@ -18,7 +18,7 @@ const StyledCircleButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'
     border-right: solid 2px rgba(0, 255, 255, 0.75);
     clip-path: ${(props) => {
         const size = !props.variant ? '24' : '12';
-        if (!props.revers) {
+        if (!props.reverse) {
             return `polygon(${size}px 0%, 100% 0%, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0% 100%, 0% ${size}px)`;
         }
         return `polygon(calc(100% - ${size}px) 0%, 100% ${size}px, 100% 100%, ${size}px 100%, 0% calc(100% - ${size}px), 0% 0%)`;
@@ -31,7 +31,7 @@ const StyledCircleButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'
                 return;
             }
             const size = !props.variant ? '24' : '12';
-            if (!props.revers) {
+            if (!props.reverse) {
                 return `clip-path: polygon(calc(100% - ${size}px) 0%, 100% ${size}px, 100% 100%, ${size}px 100%, 0% calc(100% - ${size}px), 0% 0%)`;
             }
             return `clip-path: polygon(${size}px 0%, 100% 0%, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0% 100%, 0% ${size}px)`;
@@ -53,7 +53,7 @@ const StyledBlockButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'>
     border-right: solid 2px rgba(0, 255, 255, 0.75);
     clip-path: ${(props) => {
         const size = !props.variant ? '24' : '12';
-        if (!props.revers) {
+        if (!props.reverse) {
             return `polygon(${size}px 0%, 100% 0%, 100% calc(100% - ${size}px), calc(100% - ${size}px) 100%, 0% 100%, 0% ${size}px)`;
         }
         return `polygon(calc(100% - ${size}px) 0%, 100% ${size}px, 100% 100%, ${size}px 100%, 0% calc(100% - ${size}px), 0% 0%)`;
@@ -65,7 +65,7 @@ const StyledBlockButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'>
             if (props.disabled) {
                 return;
             }
-            if (!props.revers) {
+            if (!props.reverse) {
                 return 'clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px)';
             }
             return 'clip-path: calc(100% - 8px) 0%, 100% 8px, 100% 100%, 8px 100%, 0% calc(100% - 8px), 0% 0%';
@@ -78,17 +78,17 @@ const StyledBlockButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'>
     }
 `;
 
-const Button = ({ animationStyle = 'block', variant = false, revers = false, children, ...props }: ButtonProps) => {
+const Button = ({ animationStyle = 'block', variant = false, reverse = false, children, ...props }: ButtonProps) => {
     if (animationStyle === 'circle') {
         return (
-            <StyledCircleButton variant={variant} revers={revers} {...props}>
+            <StyledCircleButton variant={variant} reverse={reverse} {...props}>
                 {children}
             </StyledCircleButton>
         );
     }
 
     return (
-        <StyledBlockButton variant={variant} revers={revers} {...props}>
+        <StyledBlockButton variant={variant} reverse={reverse} {...props}>
             {children}
         </StyledBlockButton>
     );
