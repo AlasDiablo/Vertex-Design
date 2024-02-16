@@ -12,10 +12,10 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & Partial<Butt
 const StyledCircleButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'>>`
     padding: 12px;
     background-color: var(--vertex-grey-89);
-    transition-duration: 0.25s;
+    transition-duration: var(--vertex-normal-animation-speed);
     border: none;
-    border-left: solid 2px var(--vertex-border-color);
-    border-right: solid 2px var(--vertex-border-color);
+    border-left: solid var(--vertex-border-size) var(--vertex-border-color);
+    border-right: solid var(--vertex-border-size) var(--vertex-border-color);
     clip-path: ${(props) => {
         const size = !props.variant ? '24' : '12';
         if (!props.reverse) {
@@ -40,7 +40,7 @@ const StyledCircleButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'
     }
 
     &:active {
-        transition-duration: 0.05s;
+        transition-duration: var(--vertex-action-animation-speed);
         background-color: var(--vertex-grey-75);
         clip-path: ${(props) => {
             if (!props.reverse) {
@@ -54,10 +54,10 @@ const StyledCircleButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'
 const StyledBlockButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'>>`
     padding: 12px;
     background-color: var(--vertex-grey-89);
-    transition-duration: 0.25s;
+    transition-duration: var(--vertex-normal-animation-speed);
     border: none;
-    border-left: solid 2px var(--vertex-border-color);
-    border-right: solid 2px var(--vertex-border-color);
+    border-left: solid var(--vertex-border-size) var(--vertex-border-color);
+    border-right: solid var(--vertex-border-size) var(--vertex-border-color);
     clip-path: ${(props) => {
         const size = !props.variant ? '24' : '12';
         if (!props.reverse) {
@@ -81,7 +81,7 @@ const StyledBlockButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'>
     }
 
     &:active {
-        transition-duration: 0.05s;
+        transition-duration: var(--vertex-action-animation-speed);
         background-color: var(--vertex-grey-75);
         clip-path: ${(props) => {
             if (!props.reverse) {
@@ -94,24 +94,22 @@ const StyledBlockButton = styled.button<Omit<ButtonThemeProps, 'animationStyle'>
 
 /**
  * Todo
- * @param animationStyle
- * @param variant
- * @param reverse
- * @param children
  * @param props
  * @constructor
  */
-const Button = ({ animationStyle = 'block', variant = false, reverse = false, children, ...props }: ButtonProps) => {
+const Button = (props: ButtonProps) => {
+    const { animationStyle = 'block', variant = false, reverse = false, children, ...rest } = props;
+
     if (animationStyle === 'circle') {
         return (
-            <StyledCircleButton variant={variant} reverse={reverse} {...props}>
+            <StyledCircleButton variant={variant} reverse={reverse} {...rest}>
                 {children}
             </StyledCircleButton>
         );
     }
 
     return (
-        <StyledBlockButton variant={variant} reverse={reverse} {...props}>
+        <StyledBlockButton variant={variant} reverse={reverse} {...rest}>
             {children}
         </StyledBlockButton>
     );

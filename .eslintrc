@@ -13,8 +13,6 @@
         "@draconides/eslint-config-react"
     ],
     "rules": {
-        "react/no-unknown-property": [
-            "off"
-        ]
+        "react/no-unknown-property": "off"
     }
 }
